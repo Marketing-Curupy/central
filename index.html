@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Central do Visitante Curupy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">CURUPY</div>
+    <h1>Como podemos ajudar você hoje?</h1>
+    <p>Tudo o que você precisa saber para planejar sua visita ao Curupy.</p>
+  </header>
+
+  <section id="statusBar" class="status-bar">
+    Carregando informações do parque...
+  </section>
+
+  <main class="container">
+    <section class="hero-card">
+      <div>
+        <span class="eyebrow">Compra online</span>
+        <h2>🎟️ Comprar ingresso antecipado</h2>
+        <p>Escolha a data da sua visita e consulte os valores.</p>
+        <p class="alerta">Compras online devem ser realizadas com pelo menos 1 dia de antecedência.</p>
+      </div>
+      <button class="btn primary" id="abrirCalendario">Consultar datas e valores</button>
+    </section>
+
+    <section class="calendar-card">
+      <h2>📅 Calendário de funcionamento e valores</h2>
+      <p>Consulte datas disponíveis, horários e valores da sua visita.</p>
+      <button class="btn secondary" id="abrirCalendario2">Ver calendário</button>
+    </section>
+
+    <section class="info-grid">
+      <button class="info-card">
+        <strong>🚗 Estacionamento</strong>
+        <span>Gratuito</span>
+      </button>
+
+      <button class="info-card">
+        <strong>🎒 Guarda-volumes</strong>
+        <span>Pago à parte</span>
+      </button>
+
+      <button class="info-card" id="abrirMapa">
+        <strong>📍 Como chegar</strong>
+        <span>Abrir mapa</span>
+      </button>
+
+      <button class="info-card" id="abrirMeiaEntradaInfo">
+        <strong>🔗 Meia-entrada</strong>
+        <span>Ver regras</span>
+      </button>
+    </section>
+
+    <section class="services">
+      <article class="service-card hospedagem">
+        <h2>🏨 Hospedagem</h2>
+        <p>Passe a noite no Curupy com conforto e praticidade.</p>
+        <a class="btn tertiary" id="linkHospedagem" href="#">Conhecer hospedagem</a>
+      </article>
+
+      <article class="service-card associados">
+        <h2>💎 Clube de Associados</h2>
+        <p>Mais vantagens para aproveitar o Curupy durante todo o ano.</p>
+        <a class="btn tertiary" id="linkAssociados" href="#">Conhecer associação</a>
+      </article>
+    </section>
+
+    <section class="atendimento">
+      <h2>💬 Não encontrou a resposta que procurava?</h2>
+      <p>Fale com nossa equipe pelo assunto correto.</p>
+      <button class="btn primary" id="abrirAtendimento">Falar com atendimento</button>
+    </section>
+  </main>
+
+  <button class="help-floating" id="abrirAjuda">❓ Tire sua dúvida</button>
+
+  <div class="modal" id="modalCalendario">
+    <div class="modal-content large">
+      <button class="modal-close" data-close="modalCalendario">×</button>
+
+      <h2>Escolha a data da sua visita</h2>
+
+      <div class="calendar-header">
+        <button class="small-btn" id="mesAnterior">‹</button>
+        <strong id="tituloMes"></strong>
+        <button class="small-btn" id="mesProximo">›</button>
+      </div>
+
+      <div class="legenda">
+        <span>🟢 Disponível</span>
+        <span>🔴 Fechado</span>
+        <span>⚫ Passado</span>
+        <span>⚪ Hoje</span>
+        <span>🎉 Promoção</span>
+      </div>
+
+      <div class="calendar" id="calendar"></div>
+
+      <div id="dataSelecionada" class="selected-date hidden"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalMeiaEntrada">
+    <div class="modal-content">
+      <button class="modal-close" data-close="modalMeiaEntrada">×</button>
+
+      <h2>Meia-entrada e gratuidades</h2>
+
+      <p>A meia-entrada é vendida exclusivamente na bilheteria mediante apresentação da documentação obrigatória.</p>
+
+      <h3>Regras importantes</h3>
+
+      <ul>
+        <li>Meia-entrada disponível mediante comprovação.</li>
+        <li>PCD e TEA possuem regras específicas de gratuidade.</li>
+        <li>Crianças de 0 a 4 anos possuem entrada gratuita mediante documento oficial com foto.</li>
+        <li>Crianças e Melhor Idade devem apresentar documento oficial com foto na validação do ingresso.</li>
+      </ul>
+
+      <button class="btn primary" data-close="modalMeiaEntrada">Entendi</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalAjuda">
+    <div class="modal-content">
+      <button class="modal-close" data-close="modalAjuda">×</button>
+      <h2>❓ Tire sua dúvida</h2>
+      <div id="helpRoot" class="help-root"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="modalAtendimento">
+    <div class="modal-content">
+      <button class="modal-close" data-close="modalAtendimento">×</button>
+
+      <h2>💬 Atendimento</h2>
+      <p>Escolha o assunto para falar com a equipe correta.</p>
+
+      <div class="contact-grid">
+        <a class="btn secondary" id="zapIngressos" href="#">🎟️ Ingressos</a>
+        <a class="btn secondary" id="zapHospedagem" href="#">🏨 Hospedagem</a>
+        <a class="btn secondary" id="zapAssociados" href="#">💎 Associados</a>
+        <a class="btn secondary" id="zapGeral" href="#">📍 Outros assuntos</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="dados-calendario.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
