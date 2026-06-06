@@ -1,11 +1,17 @@
-// Dados editáveis da Central do Visitante Curupy.
-// Troque os valores e links conforme a tabela oficial do mês.
+// ==========================================
+// DADOS EDITÁVEIS DA CENTRAL DO VISITANTE
+// ==========================================
+
+// Links principais da página.
+// Troque os links abaixo pelos links oficiais da Curupy.
 
 const CONFIG = {
   links: {
     googleMaps: "https://maps.google.com/?q=Curupy+Sinop+MT",
+
     hospedagem: "#",
     associados: "#",
+
     whatsappIngressos: "https://wa.me/5500000000000",
     whatsappHospedagem: "https://wa.me/5500000000000",
     whatsappAssociados: "https://wa.me/5500000000000",
@@ -13,12 +19,26 @@ const CONFIG = {
   }
 };
 
-// Formato:
-// data: AAAA-MM-DD
+// ==========================================
+// CALENDÁRIO DO PARQUE
+// ==========================================
+//
+// data: usar formato AAAA-MM-DD
 // status: "aberto" ou "fechado"
-// horario: texto livre
-// promocao: texto opcional
-// linkSofalta: link específico da data
+// horario: exemplo "09h às 17h30"
+// promocao: pode deixar vazio ""
+// linkSofalta: link específico da data no sistema Só Falta
+//
+// Bilheteria:
+// - visitante
+// - kids
+// - convidadoSocio
+//
+// Online:
+// - visitante
+// - kids
+// - melhorIdade
+
 const CALENDARIO = [
   {
     data: "2026-06-06",
@@ -37,6 +57,7 @@ const CALENDARIO = [
     promocao: "Oferta especial",
     linkSofalta: "#"
   },
+
   {
     data: "2026-06-07",
     status: "aberto",
@@ -54,6 +75,7 @@ const CALENDARIO = [
     promocao: "Oferta especial",
     linkSofalta: "#"
   },
+
   {
     data: "2026-06-08",
     status: "fechado",
@@ -63,6 +85,7 @@ const CALENDARIO = [
     promocao: "",
     linkSofalta: ""
   },
+
   {
     data: "2026-06-09",
     status: "fechado",
@@ -72,6 +95,7 @@ const CALENDARIO = [
     promocao: "",
     linkSofalta: ""
   },
+
   {
     data: "2026-06-10",
     status: "aberto",
@@ -89,6 +113,7 @@ const CALENDARIO = [
     promocao: "",
     linkSofalta: "#"
   },
+
   {
     data: "2026-06-11",
     status: "aberto",
@@ -106,6 +131,7 @@ const CALENDARIO = [
     promocao: "Combo promocional",
     linkSofalta: "#"
   },
+
   {
     data: "2026-06-12",
     status: "aberto",
@@ -123,6 +149,7 @@ const CALENDARIO = [
     promocao: "",
     linkSofalta: "#"
   },
+
   {
     data: "2026-06-13",
     status: "aberto",
@@ -140,6 +167,7 @@ const CALENDARIO = [
     promocao: "",
     linkSofalta: "#"
   },
+
   {
     data: "2026-06-14",
     status: "aberto",
