@@ -8,23 +8,44 @@
 </head>
 
 <body>
-  <header class="topo">
-    <div class="logo">CURUPY</div>
-    <h1>Como podemos ajudar você hoje?</h1>
-    <p>Tudo o que você precisa saber para planejar sua visita ao Curupy.</p>
+  <header class="hero-topo">
+    <div class="hero-bg"></div>
+
+    <div class="hero-content">
+      <div class="logo-curupy">CURUPY</div>
+
+      <h1>Seu parque aquático pertinho de você</h1>
+
+      <p>Planeje sua visita, consulte valores e tire suas dúvidas em poucos cliques.</p>
+
+      <button class="map-link" id="abrirMapa">
+        📍 Como chegar
+      </button>
+    </div>
   </header>
 
-  <section id="statusBar" class="status-bar">
+  <section id="statusBar" class="painel-fixo">
     Carregando informações do parque...
   </section>
 
+  <div class="onda-curupy">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <path d="M0,64 C240,120 480,0 720,64 C960,128 1200,16 1440,72 L1440,120 L0,120 Z"></path>
+    </svg>
+  </div>
+
   <main class="container">
-    <section class="hero-card">
+    <section class="card-principal">
       <div>
-        <span class="eyebrow">Compra online</span>
+        <span class="tag">Compra online</span>
+
         <h2>🎟️ Comprar ingresso antecipado</h2>
-        <p>Escolha a data da sua visita e consulte os valores.</p>
-        <p class="alerta">Compras online devem ser realizadas com pelo menos 1 dia de antecedência.</p>
+
+        <p>Escolha a data da sua visita e consulte os valores disponíveis pelo site.</p>
+
+        <p class="aviso">
+          Compras online devem ser realizadas com pelo menos 1 dia de antecedência.
+        </p>
       </div>
 
       <button class="btn primary" id="abrirCalendario">
@@ -32,56 +53,67 @@
       </button>
     </section>
 
-    <section class="calendar-card">
-      <h2>📅 Calendário de funcionamento e valores</h2>
-      <p>Consulte datas disponíveis, horários e valores da sua visita.</p>
-      <button class="btn secondary" id="abrirCalendario2">Ver calendário</button>
+    <section class="servicos-grid">
+      <article class="servico-card hospedagem">
+        <div class="icon">🏨</div>
+        <h2>Hospedagem</h2>
+        <p>Passe a noite no Curupy com conforto e praticidade.</p>
+        <a class="btn yellow" id="linkHospedagem" href="#">Conhecer hospedagem</a>
+      </article>
+
+      <article class="servico-card associados">
+        <div class="icon">💎</div>
+        <h2>Clube de Associados</h2>
+        <p>Mais vantagens para aproveitar o Curupy durante todo o ano.</p>
+        <a class="btn yellow" id="linkAssociados" href="#">Conhecer associação</a>
+      </article>
     </section>
 
-    <section class="info-grid">
-      <button class="info-card">
+    <section class="calendario-chamada">
+      <div>
+        <h2>📅 Calendário de funcionamento e valores</h2>
+        <p>Consulte datas disponíveis, horários, promoções e valores da sua visita.</p>
+      </div>
+
+      <button class="btn secondary" id="abrirCalendario2">
+        Ver calendário
+      </button>
+    </section>
+
+    <section class="info-rapida">
+      <div class="info-card">
         <strong>🚗 Estacionamento</strong>
         <span>Gratuito</span>
-      </button>
+      </div>
 
-      <button class="info-card">
+      <div class="info-card">
         <strong>🎒 Guarda-volumes</strong>
         <span>Pago à parte</span>
-      </button>
+      </div>
 
-      <button class="info-card" id="abrirMapa">
-        <strong>📍 Como chegar</strong>
-        <span>Abrir mapa</span>
-      </button>
-
-      <button class="info-card" id="abrirMeiaEntradaInfo">
-        <strong>🔗 Meia-entrada</strong>
+      <button class="info-card clickable" id="abrirMeiaEntradaInfo">
+        <strong>ℹ️ Meia-entrada</strong>
         <span>Ver regras</span>
       </button>
-    </section>
 
-    <section class="services">
-      <article class="service-card hospedagem">
-        <h2>🏨 Hospedagem</h2>
-        <p>Passe a noite no Curupy com conforto e praticidade.</p>
-        <a class="btn tertiary" id="linkHospedagem" href="#">Conhecer hospedagem</a>
-      </article>
-
-      <article class="service-card associados">
-        <h2>💎 Clube de Associados</h2>
-        <p>Mais vantagens para aproveitar o Curupy durante todo o ano.</p>
-        <a class="btn tertiary" id="linkAssociados" href="#">Conhecer associação</a>
-      </article>
+      <button class="info-card clickable" id="abrirMapa2">
+        <strong>📍 Localização</strong>
+        <span>Abrir mapa</span>
+      </button>
     </section>
 
     <section class="atendimento">
       <h2>💬 Não encontrou a resposta que procurava?</h2>
       <p>Fale com nossa equipe pelo assunto correto.</p>
-      <button class="btn primary" id="abrirAtendimento">Falar com atendimento</button>
+      <button class="btn primary" id="abrirAtendimento">
+        Falar com atendimento
+      </button>
     </section>
   </main>
 
-  <button class="help-floating" id="abrirAjuda">❓ Tire sua dúvida</button>
+  <button class="help-floating" id="abrirAjuda">
+    ❓ Tire sua dúvida
+  </button>
 
   <div class="modal" id="modalCalendario">
     <div class="modal-content large">
@@ -113,18 +145,49 @@
     <div class="modal-content">
       <button class="modal-close" data-close="modalMeiaEntrada">×</button>
 
-      <h2>Meia-entrada e gratuidades</h2>
+      <h2>ℹ️ Regras de meia-entrada e gratuidade</h2>
 
-      <p>A meia-entrada é vendida exclusivamente na bilheteria mediante apresentação da documentação obrigatória.</p>
-
-      <h3>Regras importantes</h3>
+      <h3>Quem tem direito à meia-entrada?</h3>
 
       <ul>
-        <li>Meia-entrada disponível mediante comprovação.</li>
-        <li>PCD e TEA possuem regras específicas de gratuidade.</li>
-        <li>Crianças de 0 a 4 anos possuem entrada gratuita mediante documento oficial com foto.</li>
-        <li>Crianças e Melhor Idade devem apresentar documento oficial com foto na validação do ingresso.</li>
+        <li>Estudantes com carteira estudantil válida.</li>
+        <li>Pessoas com 60 anos ou mais.</li>
+        <li>Jovens de baixa renda com ID Jovem.</li>
+        <li>Doadores de sangue, conforme legislação vigente.</li>
+        <li>Doadores de medula óssea cadastrados no REDOME.</li>
+        <li>Professores da rede pública estadual e municipal.</li>
+        <li>Pessoas com câncer ou doenças degenerativas mediante comprovação.</li>
       </ul>
+
+      <h3>Como comprovar?</h3>
+
+      <p>
+        Apresente documento oficial e comprovante válido da categoria correspondente
+        no momento da compra e da entrada no parque.
+      </p>
+
+      <div class="conditions">
+        <strong>Importante</strong>
+        <ul>
+          <li>A meia-entrada é vendida exclusivamente na bilheteria do parque.</li>
+          <li>Compras online não possuem meia-entrada.</li>
+          <li>O benefício não é cumulativo com promoções, descontos ou convênios.</li>
+        </ul>
+      </div>
+
+      <h3>Gratuidade</h3>
+
+      <p>
+        Pessoas com Deficiência (PCD) e pessoas com Transtorno do Espectro Autista (TEA)
+        possuem direito à entrada gratuita mediante apresentação da documentação comprobatória.
+      </p>
+
+      <h3>Acompanhante</h3>
+
+      <p>
+        Quando houver necessidade comprovada de acompanhamento, o acompanhante também possui
+        direito à gratuidade.
+      </p>
 
       <button class="btn primary" data-close="modalMeiaEntrada">Entendi</button>
     </div>
