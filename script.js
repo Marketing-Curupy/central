@@ -304,8 +304,10 @@ const helpData = {
       "O ingresso dá acesso às atrações e áreas de lazer disponíveis no parque durante o dia da visita. ECO Parque Aventura, Bahamas Bar e Império do Tererê possuem cobrança separada."
     ],
     [
-      "Tem meia-entrada?",
-      "Sim. A meia-entrada é vendida exclusivamente na bilheteria mediante comprovação."
+   [
+  "Tem meia-entrada?",
+  "Sim. A meia-entrada é vendida exclusivamente na bilheteria mediante comprovação. Compras online não possuem meia-entrada."
+]
     ]
   ],
 
