@@ -8,216 +8,173 @@
 </head>
 
 <body>
-  <header class="hero-topo">
-    <div class="hero-bg"></div>
-
-    <div class="hero-content">
-      <div class="logo-curupy">CURUPY</div>
-
-      <h1>Seu parque aquático pertinho de você</h1>
-
-      <p>Planeje sua visita, consulte valores e tire suas dúvidas em poucos cliques.</p>
-
-      <button class="map-link" id="abrirMapa">
-        📍 Como chegar
-      </button>
+  <header class="hero">
+    <div class="hero-logo">
+      <img src="assets/logo-curupy.png" alt="Curupy Acqua Park">
     </div>
+
+    <h1>Bem-vindo ao Curupy! 🌊</h1>
+    <h2>Como podemos ajudar com sua visita?</h2>
+    <p>Encontre informações sobre ingressos, funcionamento, hospedagem, associação e muito mais.</p>
   </header>
 
-  <section id="statusBar" class="painel-fixo">
-    Carregando informações do parque...
-  </section>
-
-  <div class="onda-curupy">
-    <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-      <path d="M0,64 C240,120 480,0 720,64 C960,128 1200,16 1440,72 L1440,120 L0,120 Z"></path>
-    </svg>
-  </div>
+  <section id="barraStatus" class="barra-fixa"></section>
 
   <main class="container">
-    <section class="card-principal">
+    <section class="card destaque">
       <div>
-        <span class="tag">Compra online</span>
-
-        <h2>🎟️ Comprar ingresso antecipado</h2>
-
-        <p>Escolha a data da sua visita e consulte os valores disponíveis pelo site.</p>
-
-        <p class="aviso">
-          Compras online devem ser realizadas com pelo menos 1 dia de antecedência.
-        </p>
+        <h2>🎟️ Ingressos e valores</h2>
+        <p>Garanta sua visita antecipadamente com desconto e parcelamento exclusivo pelo site oficial.</p>
+        <p class="aviso">Compras online devem ser realizadas com pelo menos 1 dia de antecedência.</p>
       </div>
 
-      <button class="btn primary" id="abrirCalendario">
-        Consultar datas e valores
+      <button class="btn rosa" onclick="abrirModal('modalIngressos')">
+        Ver valores e datas disponíveis
       </button>
     </section>
 
-    <section class="servicos-grid">
-      <article class="servico-card hospedagem">
-        <div class="icon">🏨</div>
-        <h2>Hospedagem</h2>
-        <p>Passe a noite no Curupy com conforto e praticidade.</p>
-        <a class="btn yellow" id="linkHospedagem" href="#">Conhecer hospedagem</a>
+    <section class="grid">
+      <article class="card">
+        <h2>📅 Calendário de funcionamento</h2>
+        <p>Consulte os dias e horários de funcionamento do parque.</p>
+        <button class="btn azul" onclick="abrirModal('modalCalendario')">Ver calendário</button>
       </article>
 
-      <article class="servico-card associados">
-        <div class="icon">💎</div>
-        <h2>Clube de Associados</h2>
-        <p>Mais vantagens para aproveitar o Curupy durante todo o ano.</p>
-        <a class="btn yellow" id="linkAssociados" href="#">Conhecer associação</a>
+      <article class="card">
+        <h2>🏨 Hospedagem</h2>
+        <p>Conheça nossas opções de hospedagem.</p>
+        <a class="btn azul" href="hospedagem.html">Conhecer hospedagem</a>
+      </article>
+
+      <article class="card">
+        <h2>💎 Clube de Associados</h2>
+        <p>Aproveite vantagens exclusivas durante todo o ano.</p>
+        <a class="btn azul" href="associados.html">Conhecer associação</a>
+      </article>
+
+      <article class="card">
+        <h2>📍 Como chegar</h2>
+        <p>Veja a localização do Curupy no mapa.</p>
+        <button class="btn azul" id="btnMapa">Abrir mapa</button>
       </article>
     </section>
 
-    <section class="calendario-chamada">
+    <section class="info">
       <div>
-        <h2>📅 Calendário de funcionamento e valores</h2>
-        <p>Consulte datas disponíveis, horários, promoções e valores da sua visita.</p>
-      </div>
-
-      <button class="btn secondary" id="abrirCalendario2">
-        Ver calendário
-      </button>
-    </section>
-
-    <section class="info-rapida">
-      <div class="info-card">
-        <strong>🚗 Estacionamento</strong>
+        🚗 <strong>Estacionamento</strong>
         <span>Gratuito</span>
       </div>
 
-      <div class="info-card">
-        <strong>🎒 Guarda-volumes</strong>
+      <div>
+        🎒 <strong>Guarda-volumes</strong>
         <span>Pago à parte</span>
       </div>
 
-      <button class="info-card clickable" id="abrirMeiaEntradaInfo">
-        <strong>ℹ️ Meia-entrada</strong>
-        <span>Ver regras</span>
-      </button>
-
-      <button class="info-card clickable" id="abrirMapa2">
-        <strong>📍 Localização</strong>
-        <span>Abrir mapa</span>
-      </button>
-    </section>
-
-    <section class="atendimento">
-      <h2>💬 Não encontrou a resposta que procurava?</h2>
-      <p>Fale com nossa equipe pelo assunto correto.</p>
-      <button class="btn primary" id="abrirAtendimento">
-        Falar com atendimento
-      </button>
+      <div>
+        ℹ️ <strong>Meia-entrada</strong>
+        <button onclick="abrirModal('modalMeia')">Ver regras</button>
+      </div>
     </section>
   </main>
 
-  <button class="help-floating" id="abrirAjuda">
-    ❓ Tire sua dúvida
-  </button>
+  <button class="ajuda" onclick="abrirModal('modalAjuda')">❓ Tire sua dúvida</button>
 
-  <div class="modal" id="modalCalendario">
-    <div class="modal-content large">
-      <button class="modal-close" data-close="modalCalendario">×</button>
-
-      <h2>Escolha a data da sua visita</h2>
-
-      <div class="calendar-header">
-        <button class="small-btn" id="mesAnterior">‹</button>
-        <strong id="tituloMes"></strong>
-        <button class="small-btn" id="mesProximo">›</button>
-      </div>
-
-      <div class="legenda">
-        <span>🟢 Disponível</span>
-        <span>🔴 Fechado</span>
-        <span>⚫ Passado</span>
-        <span>⚪ Hoje</span>
-        <span>🎉 Promoção</span>
-      </div>
-
-      <div class="calendar" id="calendar"></div>
-
-      <div id="dataSelecionada" class="selected-date hidden"></div>
+  <div class="modal" id="modalIngressos">
+    <div class="modal-box grande">
+      <button class="fechar" onclick="fecharModal('modalIngressos')">×</button>
+      <h2>🎟️ Ingressos e valores</h2>
+      <iframe id="iframeIngressos" title="Ingressos e valores"></iframe>
     </div>
   </div>
 
-  <div class="modal" id="modalMeiaEntrada">
-    <div class="modal-content">
-      <button class="modal-close" data-close="modalMeiaEntrada">×</button>
+  <div class="modal" id="modalCalendario">
+    <div class="modal-box grande">
+      <button class="fechar" onclick="fecharModal('modalCalendario')">×</button>
+      <h2>📅 Calendário de funcionamento</h2>
+      <div id="calendariosContainer"></div>
+    </div>
+  </div>
 
-      <h2>ℹ️ Regras de meia-entrada e gratuidade</h2>
+  <div class="modal" id="modalDiaCalendario">
+    <div class="modal-box dia-modal">
+      <button class="fechar" onclick="fecharModal('modalDiaCalendario')">×</button>
+      <div id="conteudoDiaCalendario"></div>
+      <button class="btn rosa full" onclick="fecharModal('modalDiaCalendario')">Fechar</button>
+    </div>
+  </div>
 
-      <h3>Quem tem direito à meia-entrada?</h3>
-
-      <ul>
-        <li>Estudantes com carteira estudantil válida.</li>
-        <li>Pessoas com 60 anos ou mais.</li>
-        <li>Jovens de baixa renda com ID Jovem.</li>
-        <li>Doadores de sangue, conforme legislação vigente.</li>
-        <li>Doadores de medula óssea cadastrados no REDOME.</li>
-        <li>Professores da rede pública estadual e municipal.</li>
-        <li>Pessoas com câncer ou doenças degenerativas mediante comprovação.</li>
-      </ul>
-
-      <h3>Como comprovar?</h3>
-
-      <p>
-        Apresente documento oficial e comprovante válido da categoria correspondente
-        no momento da compra e da entrada no parque.
-      </p>
-
-      <div class="conditions">
-        <strong>Importante</strong>
-        <ul>
-          <li>A meia-entrada é vendida exclusivamente na bilheteria do parque.</li>
-          <li>Compras online não possuem meia-entrada.</li>
-          <li>O benefício não é cumulativo com promoções, descontos ou convênios.</li>
-        </ul>
+  <div class="modal" id="modalMeia">
+    <div class="modal-box meia-modal">
+      <div class="meia-header">
+        <h2>Política de Meia-Entrada e Gratuidade</h2>
+        <button class="fechar meia-fechar" onclick="fecharModal('modalMeia')">×</button>
       </div>
 
-      <h3>Gratuidade</h3>
+      <div class="accordion">
+        <div class="accordion-item active">
+          <button class="accordion-header">Meia-Entrada <span>⌃</span></button>
+          <div class="accordion-content">
+            <p>A meia-entrada é válida exclusivamente sobre o valor da tabela padrão da portaria.</p>
+            <p>A venda de ingressos com meia-entrada é realizada somente na bilheteria, no dia da visita, mediante apresentação da documentação original e válida.</p>
 
-      <p>
-        Pessoas com Deficiência (PCD) e pessoas com Transtorno do Espectro Autista (TEA)
-        possuem direito à entrada gratuita mediante apresentação da documentação comprobatória.
-      </p>
+            <h4>Têm direito à meia-entrada:</h4>
+            <ul>
+              <li>Estudantes com carteira estudantil válida.</li>
+              <li>Professores da rede Estadual ou Municipal de Mato Grosso mediante identificação funcional válida.</li>
+              <li>Doadores regulares de sangue e doadores de medula óssea mediante comprovação válida.</li>
+              <li>Pessoas com 60 anos ou mais mediante documento oficial com foto.</li>
+            </ul>
 
-      <h3>Acompanhante</h3>
+            <div class="alerta-importante">
+              Importante: não serão aceitas cópias, fotografias ou documentos vencidos.
+            </div>
+          </div>
+        </div>
 
-      <p>
-        Quando houver necessidade comprovada de acompanhamento, o acompanhante também possui
-        direito à gratuidade.
-      </p>
+        <div class="accordion-item">
+          <button class="accordion-header">Gratuidade para PCD <span>⌄</span></button>
+          <div class="accordion-content">
+            <p>Pessoas com Deficiência possuem direito à gratuidade mediante apresentação de documento oficial que comprove a condição.</p>
+            <p>O direito ao acompanhante será analisado conforme a documentação apresentada.</p>
+          </div>
+        </div>
 
-      <button class="btn primary" data-close="modalMeiaEntrada">Entendi</button>
+        <div class="accordion-item">
+          <button class="accordion-header">Gratuidade para TEA <span>⌄</span></button>
+          <div class="accordion-content">
+            <p>Pessoas com Transtorno do Espectro Autista possuem direito à gratuidade mediante apresentação da CIPTEA ou documento oficial que comprove a condição.</p>
+            <p>Nestes casos também é garantido o direito ao acompanhante.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">Regras para Acompanhantes <span>⌄</span></button>
+          <div class="accordion-content">
+            <ul>
+              <li>Ter idade mínima de 18 anos.</li>
+              <li>Apresentar documento oficial com foto.</li>
+            </ul>
+            <p>A validação será realizada pela equipe da bilheteria.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="meia-footer">
+        <button class="btn rosa full" onclick="fecharModal('modalMeia')">Entendi</button>
+      </div>
     </div>
   </div>
 
   <div class="modal" id="modalAjuda">
-    <div class="modal-content">
-      <button class="modal-close" data-close="modalAjuda">×</button>
+    <div class="modal-box">
+      <button class="fechar" onclick="fecharModal('modalAjuda')">×</button>
       <h2>❓ Tire sua dúvida</h2>
-      <div id="helpRoot" class="help-root"></div>
+      <div id="ajudaContainer"></div>
     </div>
   </div>
 
-  <div class="modal" id="modalAtendimento">
-    <div class="modal-content">
-      <button class="modal-close" data-close="modalAtendimento">×</button>
-
-      <h2>💬 Atendimento</h2>
-      <p>Escolha o assunto para falar com a equipe correta.</p>
-
-      <div class="contact-grid">
-        <a class="btn secondary" id="zapIngressos" href="#">🎟️ Ingressos</a>
-        <a class="btn secondary" id="zapHospedagem" href="#">🏨 Hospedagem</a>
-        <a class="btn secondary" id="zapAssociados" href="#">💎 Associados</a>
-        <a class="btn secondary" id="zapGeral" href="#">📍 Outros assuntos</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="dados-calendario.js"></script>
+  <script src="dados-barra.js"></script>
+  <script src="calendarios.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
