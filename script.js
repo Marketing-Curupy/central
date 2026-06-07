@@ -117,7 +117,9 @@ function renderStatusBar() {
       <div>
         <div class="status-title">🔴 Parque fechado hoje</div>
         <div class="status-meta">
-          <span>📅 Próximo dia de abertura: ${nextOpen ? formatLongDate(nextOpen.data) : "em breve"}</span>
+          <span>📅 Próximo dia de abertura: ${
+            nextOpen ? formatLongDate(nextOpen.data) : "em breve"
+          }</span>
         </div>
       </div>
     </div>
@@ -132,6 +134,7 @@ function renderCalendar() {
 
   const calendar = $("#calendar");
   calendar.innerHTML = "";
+  $("#dataSelecionada").classList.add("hidden");
 
   dayNames.forEach((day) => {
     const el = document.createElement("div");
