@@ -12,10 +12,10 @@ const CONFIG = {
     hospedagem: "#",
     associados: "#",
 
-    whatsappIngressos: "https://wa.me/5500000000000",
-    whatsappHospedagem: "https://wa.me/5500000000000",
-    whatsappAssociados: "https://wa.me/5500000000000",
-    whatsappGeral: "https://wa.me/5500000000000"
+    whatsappIngressos: "https://wa.me/5566996454707",
+    whatsappHospedagem: "https://wa.me/55996562410",
+    whatsappAssociados: "https://wa.me/556630153214",
+    whatsappGeral: "https://wa.me/556630153214"
   }
 };
 
