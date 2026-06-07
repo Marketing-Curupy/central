@@ -78,28 +78,35 @@ function renderStatusBar() {
     const b = item.bilheteria || {};
 
     statusBar.innerHTML = `
-      <div class="status-grid">
-        <div>
-          <div class="status-title">🟢 Parque aberto hoje</div>
-          <div class="status-meta">
-            <span>📅 ${formatLongDate(item.data)}</span>
-            <span>⏰ ${item.horario}</span>
-          </div>
+      <div class="painel-visitante">
+        <div class="painel-status">
+          <h2>🟢 Parque aberto</h2>
+          <p>${formatLongDate(item.data)}</p>
+          <strong>${item.horario}</strong>
         </div>
 
-        <div>
-          <strong>🎟️ Bilheteria hoje</strong>
-          <div class="ticket-values">
-            <span class="value-pill">👤 Visitante: ${formatMoney(b.visitante)}</span>
-            <span class="value-pill">🧒 Kids: ${formatMoney(b.kids)}</span>
-            <span class="value-pill">💎 Convidado: ${formatMoney(b.convidadoSocio)}</span>
-          </div>
-        </div>
+        <div class="painel-tarifario">
+          <h2>🎟️ Tarifário de bilheteria</h2>
 
-        <div>
-          <small>ℹ️ Meia-entrada mediante comprovação.</small><br>
-          <button class="meia-link" onclick="openModal('modalMeiaEntrada')">
-            Ver regras completas
+          <div class="tarifas">
+            <div>
+              <span>Visitante</span>
+              <strong>${formatMoney(b.visitante)}</strong>
+            </div>
+
+            <div>
+              <span>Kids</span>
+              <strong>${formatMoney(b.kids)}</strong>
+            </div>
+
+            <div>
+              <span>Convidado sócio</span>
+              <strong>${formatMoney(b.convidadoSocio)}</strong>
+            </div>
+          </div>
+
+          <button class="link-meia" onclick="openModal('modalMeiaEntrada')">
+            ℹ️ Ver regras de meia-entrada
           </button>
         </div>
       </div>
@@ -113,14 +120,17 @@ function renderStatusBar() {
     .sort((a, b) => a.data.localeCompare(b.data))[0];
 
   statusBar.innerHTML = `
-    <div class="status-grid">
-      <div>
-        <div class="status-title">🔴 Parque fechado hoje</div>
-        <div class="status-meta">
-          <span>📅 Próximo dia de abertura: ${
-            nextOpen ? formatLongDate(nextOpen.data) : "em breve"
-          }</span>
-        </div>
+    <div class="painel-visitante fechado">
+      <div class="painel-status">
+        <h2>🔴 Parque fechado</h2>
+        <p>Próximo dia de abertura:</p>
+        <strong>${nextOpen ? formatLongDate(nextOpen.data) : "em breve"}</strong>
+      </div>
+
+      <div class="painel-tarifario">
+        <button class="link-meia" onclick="openModal('modalMeiaEntrada')">
+          ℹ️ Ver regras de meia-entrada
+        </button>
       </div>
     </div>
   `;
